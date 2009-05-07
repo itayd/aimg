@@ -1,0 +1,154 @@
+
+.dokuwiki div.aimgcontent {
+    display: none;
+}
+
+@media aural,braille,tty {
+  .dokuwiki div.aimgcontent {
+	  display: block;
+  }
+  .dokuwiki img.aimg {
+	  display: none;
+  }
+}
+
+/*
+The overall canvas: added in fnclient-0.5.0 to provide a canvas works space to be able to place
+controls outside of image, and also one of: container-inactive container-active
+*/
+
+.fn-canvas {
+ position: relative;
+ border: 0px solid #ddd;
+ /*background-color: #eef5f9;
+ border-left: 1px solid #d5e6ee;
+ border-top: 1px solid #d5e6ee;
+ border-right: 1px solid #d5e6ee; */
+}
+
+/*
+The overall container: always has class="fn-container", and also one of:
+container-inactive container-active
+*/
+
+.fn-container {
+ position: absolute;
+}
+
+.fn-container img {
+ border-width: 0;
+}
+
+.fn-view-image-link {
+	display: block;
+	margin-top: 10px;
+	text-align: left;
+}
+
+#fn-modaldialog {
+	position: absolute;
+	background-color: #fddddd;
+	height: 20px;
+	width: 150px;
+	right: 0px;
+	top: 0px;
+	color: black;
+	padding-left: 4px;
+}
+
+
+/* Note areas - a separate class is applied to those being edited. */
+
+.fn-area {
+ position: absolute;
+ background: url(artwork/transparent.gif);
+ border: 1px dotted #33CCFF; 
+ cursor: crosshair;
+}
+
+#fn-area-new{
+ border: 1px dotted #ff0;
+}
+
+.fn-container-active .fn-area {
+ visibility: inherit;
+}
+
+.fn-container-inactive .fn-area {
+ visibility: hidden;
+}
+
+
+.fn-area-innerborder-left {
+ position: absolute;
+ top: 0xp;
+ left: 0px;
+ border-left:1px solid #fff;
+ width: 0px;
+ height: 100%;
+}
+
+.fn-area-innerborder-top {
+ position: absolute;
+ top: 0xp;
+ left: 0px;
+ border-top: 1px solid #fff;
+ width: 100%;
+ height: 1px;
+}
+
+.fn-area-innerborder-right {
+ position: absolute;
+ top: 0xp;
+ right: 0px;
+ border-right:1px solid #fff;
+ width: 0px;
+ height: 100%;
+}
+
+.fn-area-innerborder-bottom {
+ position: absolute;
+ top: 0xp;
+ bottom: 0px;
+ border-bottom: 1px solid #fff;
+ width: 100%;
+}
+
+
+/* Notes themselves. */
+
+.fn-note {
+ position: absolute;
+ left: 0%;
+ top: 100%;
+ width: 150px;
+ visibility: hidden;
+ padding: 4px;
+ background-color: #FFEECC;
+ border: 1px solid #000;
+ -moz-border-radius: 7px; /* Non-standard */
+}
+.fn-note span {
+ display: block;
+ margin-top: 2px;
+ text-align: left;
+ line-height: 1em;
+}
+.fn-note-title {
+ margin-bottom: 1px;
+ font-size: 110%;
+ font-weight: bold;
+ color: #666633;
+}
+.fn-note-content {
+ color: #000000;
+}
+.fn-note-author {
+ font-size: 80%;
+ font-style: italic;
+ text-align: right;
+ color: #333300;
+}
+
+
+
