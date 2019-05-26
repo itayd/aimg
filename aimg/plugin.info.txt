@@ -1,0 +1,7 @@
+base   aimg
+author Itay Donenhirsch
+email  itay@bazoo.org
+date   2009-05-05
+name   Annotated Image Plugin
+desc   Use FotoNotes to display annotations on images
+url    https://www.dokuwiki.org/plugin:aimg
