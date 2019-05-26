@@ -41,17 +41,6 @@ class syntax_plugin_aimg extends DokuWiki_Syntax_Plugin {
 		$this->id_seq_num = 0;
 	}
 	
-    function getInfo(){
-        return array(
-            'author' => 'Itay Donenhirsch',
-            'email'  => 'itay@bazoo.org',
-            'date'   => '2009-05-05',
-            'name'   => 'Annotated Image Plugin',
-            'desc'   => 'Use FotoNotes to display annotations on images',
-            'url'    => 'http://itay.bazoo.org/projects/aimg', 
-        );
-    }
- 
     function getType(){
         return 'container';
     }
@@ -103,7 +92,7 @@ class syntax_plugin_aimg extends DokuWiki_Syntax_Plugin {
 		return $img_id;
 	}
 	
-    function handle($match, $state, $pos, &$handler){
+    function handle($match, $state, $pos, Doku_Handler $handler){
         switch ($state) {
 		case DOKU_LEXER_ENTER :
 			$img = Doku_Handler_Parse_Media(substr($match, 7, -2));
@@ -155,7 +144,7 @@ class syntax_plugin_aimg extends DokuWiki_Syntax_Plugin {
 		return $img_id;
 	}
 	
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
 	
         if ( substr($mode,0,5) == 'xhtml' ) {
 			$state = $data[0];
@@ -186,8 +175,6 @@ class syntax_plugin_aimg extends DokuWiki_Syntax_Plugin {
 
 					$style = 'width: '.$this->img_width.'px; height: '.$this->img_height.'px; '.$align_style;
 					
-					$renderer->doc .= '<p>'.DOKU_LF;
-
 					$renderer->doc .= '<div id="fn-canvas-id-'.$this->img_id.'" class="fn-canvas fn-container-active" style="'.$style.'" >'.DOKU_LF;
 					$renderer->doc .= ' <div id="'.$this->img_id.'" class="fn-container fn-container-active" >'.DOKU_LF;
 
@@ -230,7 +217,6 @@ class syntax_plugin_aimg extends DokuWiki_Syntax_Plugin {
 
 				case DOKU_LEXER_EXIT :       
 					$renderer->doc .= ' </div>'.DOKU_LF.'</div>'.DOKU_LF;
-					$renderer->doc .= '</p>'.DOKU_LF;
 					break;
 			}
 			return true;
@@ -239,6 +225,4 @@ class syntax_plugin_aimg extends DokuWiki_Syntax_Plugin {
 		}
     }
 }
- 
-//Setup VIM: ex: et ts=4 enc=utf-8 :
 ?>
