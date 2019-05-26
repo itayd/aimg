@@ -225,6 +225,4 @@ class syntax_plugin_aimg extends DokuWiki_Syntax_Plugin {
 		}
     }
 }
- 
-//Setup VIM: ex: et ts=4 enc=utf-8 :
 ?>
